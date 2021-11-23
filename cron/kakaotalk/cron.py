@@ -43,10 +43,10 @@ def send_talk():
     response = requests.post(url, headers=headers, data=data)
     response.status_code
 #
-# def crontab_job():
-#     send_talk()
-#     pass
-send_talk()
+def crontab_job():
+    send_talk()
+    pass
+# send_talk()
 # get_graph(1)
 
-# crontab_job()
+crontab_job()
