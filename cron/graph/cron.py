@@ -19,7 +19,8 @@ import datetime
 
 #ssf-graph-team2우리 이미지 bucket 이름
 
-
+def draw_all():
+    draw_graph_all_elders()
 
 def draw_graph_all_elders():
     elders = Elder.objects.all()

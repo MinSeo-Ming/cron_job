@@ -51,11 +51,14 @@ INSTALLED_APPS = [
     'storages'
 ]
 
+b_d = str(BASE_DIR)
+
 ##Cron
 CRONJOBS = [
-    ('*,9,*,*,*', 'kakaotalk.cron.send_talk'),
-    ('53,23,*,*,*', 'graph.cron.draw_graph_all_elders')
+    ('*/5 10 * * *', 'kakaotalk.cron.send_talk','>> '+ b_d +'/log/kakao.log'),
+    ('53 23 * * *', 'graph.cron.draw_graph_all_elders','>> '+ b_d +'/log/graph.log')
 ]
+
 
 # kakaotalk 이란 app 중 cron.py라는 파일 아래의 send_talk이라는 def를 매일 9시 마다 진행된다.
 
@@ -94,23 +97,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'wecareDB',
-#         'USER': 'wecare_admin',
-#         'PASSWORD': 'admin1234@',
-#         'HOST': '3.15.69.19',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'wecareDB',
+        'USER': 'wecare_admin',
+        'PASSWORD': 'admin1234@',
+        'HOST': '3.15.69.19',
+        'PORT': '3306',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
