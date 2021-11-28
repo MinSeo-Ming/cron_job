@@ -84,7 +84,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wecare.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
