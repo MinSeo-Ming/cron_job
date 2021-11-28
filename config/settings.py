@@ -52,8 +52,8 @@ b_d = str(BASE_DIR)
 
 ##Cron
 CRONJOBS = [
-    ('*/5 10 * * *', 'cron.kakao.send_talk'),
-    ('53 23 * * *', 'cron.graph.draw_graph_all_elders')
+    ('* 7 * * *', 'cron.kakao.send_talk'),
+    ('53 23 * * *', 'cron.graph.draw_one_patient')
 ]
 
 MIDDLEWARE = [
